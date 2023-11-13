@@ -4,12 +4,12 @@ WORKDIR /build
 
 COPY . .
 
-RUN go build -ldflags="-s -w" -o  main main.go
+RUN cd ./src/hello && go build -ldflags="-s -w" -o  hello hello.go
 
 FROM alpine
 
-WORKDIR /build
+WORKDIR /app
 
-COPY --from=builder /build/main /build/main
+COPY --from=builder /build/src/hello/hello /app/main
 
 CMD ["./main"]
