@@ -11,11 +11,10 @@ func main() {
 	log.SetPrefix("greetings: ")
 	log.SetFlags(0)
 
-	message, err := greetings.Hello("")
-
+	message, err := greetings.Hello("world")
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	fmt.Println(greetings.Hello(message))
+	fmt.Println(message)
 }
